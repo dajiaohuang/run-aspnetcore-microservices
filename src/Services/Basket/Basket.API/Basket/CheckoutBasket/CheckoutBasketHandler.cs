@@ -35,13 +35,35 @@ public class CheckoutBasketCommandHandler
             return new CheckoutBasketResult(false);
         }
 
-        var eventMessage = command.BasketCheckoutDto.Adapt<BasketCheckoutEvent>();
-        eventMessage.TotalPrice = basket.TotalPrice;
+        var eventMessage = MapToBasketCheckoutEvent(command.BasketCheckoutDto, basket);
+        if (eventMessage is null)
+        {
+            return new CheckoutBasketResult(false);
+        }
 
         await publishEndpoint.Publish(eventMessage, cancellationToken);
 
         await repository.DeleteBasket(command.BasketCheckoutDto.UserName, cancellationToken);
 
         return new CheckoutBasketResult(true);
+    }
+
+    internal static BasketCheckoutEvent? MapToBasketCheckoutEvent(
+        BasketCheckoutDto checkoutDto,
+        ShoppingCart basket
+    )
+    {
+        if (basket.Items.Count == 0)
+        {
+            return null;
+        }
+
+        var eventMessage = checkoutDto.Adapt<BasketCheckoutEvent>();
+        eventMessage.TotalPrice = basket.TotalPrice;
+        eventMessage.Items = basket.Items
+            .Select(item => new BasketCheckoutItem(item.ProductId, item.Quantity, item.Price))
+            .ToList();
+
+        return eventMessage;
     }
 }

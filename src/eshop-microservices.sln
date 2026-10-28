@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{E746
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Web", "WebApps\Shopping.Web\Shopping.Web.csproj", "{C9D524EB-B6E2-4FCD-9EF8-3231CDDBB590}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunAspNetCoreMicroservices.Tests", "Tests\RunAspNetCoreMicroservices.Tests\RunAspNetCoreMicroservices.Tests.csproj", "{A14F7147-9EF4-4E68-9CC3-D94F7BB8E13D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{C9D524EB-B6E2-4FCD-9EF8-3231CDDBB590}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9D524EB-B6E2-4FCD-9EF8-3231CDDBB590}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9D524EB-B6E2-4FCD-9EF8-3231CDDBB590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14F7147-9EF4-4E68-9CC3-D94F7BB8E13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14F7147-9EF4-4E68-9CC3-D94F7BB8E13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14F7147-9EF4-4E68-9CC3-D94F7BB8E13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14F7147-9EF4-4E68-9CC3-D94F7BB8E13D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
